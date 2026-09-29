@@ -147,27 +147,6 @@ body {
   align-items: center; text-align: center;
   position: relative; width: 100%;
 }
-/* ── Variant switcher ── */
-.variant-switcher {
-  display: inline-flex; gap: 4px;
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 30px; padding: 4px;
-  margin-bottom: 36px;
-}
-.v-btn {
-  background: none; border: none; cursor: pointer;
-  font-family: 'Outfit', sans-serif;
-  font-size: 12.5px; font-weight: 600;
-  color: rgba(255,255,255,0.45);
-  padding: 6px 18px; border-radius: 24px;
-  transition: background .2s, color .2s;
-  letter-spacing: 0.03em;
-}
-.v-btn.active {
-  background: rgba(255,255,255,0.12);
-  color: #EEF0F8;
-}
 /* ── Variant panels ── */
 .hero-variant { width: 100%; }
 .hero-variant[hidden] { display: none !important; }
@@ -566,12 +545,6 @@ body {
 <section class="hero">
   <div class="hero-inner">
 
-    <!-- Variant switcher -->
-    <div class="variant-switcher" role="group" aria-label="Hero variant">
-      <button class="v-btn active" data-v="a" aria-pressed="true">Variant A</button>
-      <button class="v-btn" data-v="b" aria-pressed="false">Variant B</button>
-    </div>
-
     <!-- Variant A -->
     <div class="hero-variant" id="hero-a">
       <div class="hero-badge"><span class="pulse"></span>Live on Telegram</div>
@@ -932,17 +905,34 @@ body {
   }
 })();
 
-/* Variant A/B switcher */
-document.querySelectorAll('.v-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const v = btn.dataset.v;
-    document.querySelectorAll('.v-btn').forEach(b => { b.classList.remove('active'); b.setAttribute('aria-pressed','false'); });
-    btn.classList.add('active');
-    btn.setAttribute('aria-pressed','true');
-    document.getElementById('hero-a').hidden = (v !== 'a');
-    document.getElementById('hero-b').hidden = (v !== 'b');
+/* A/B test — random variant per visitor, sticky for the session */
+(function() {
+  let v = '';
+  try { v = sessionStorage.getItem('invois_variant') || ''; } catch(_) {}
+  if (!v) {
+    v = Math.random() < 0.5 ? 'a' : 'b';
+    try { sessionStorage.setItem('invois_variant', v); } catch(_) {}
+  }
+  document.getElementById('hero-a').hidden = (v !== 'a');
+  document.getElementById('hero-b').hidden = (v !== 'b');
+
+  /* Tag the session in Clarity so you can filter recordings by variant */
+  function tagClarity() {
+    if (window.clarity) {
+      clarity('set', 'hero_variant', v);
+    }
+  }
+  tagClarity();
+  /* Clarity loads async — retry once if it isn't ready yet */
+  setTimeout(tagClarity, 2000);
+
+  /* Track CTA clicks as a Clarity custom event */
+  document.querySelectorAll('.hero-variant .btn-hero').forEach(btn => {
+    btn.addEventListener('click', function() {
+      if (window.clarity) clarity('event', 'hero_cta_click');
+    });
   });
-});
+})();
 
 document.querySelectorAll('.faq-q').forEach(btn => {
   btn.addEventListener('click', () => {
