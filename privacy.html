@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — invois.work</title>
+<meta name="description" content="Privacy Policy for invois.work (EzeInvoice). How we collect, use, and protect your data.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;1,9..144,300&family=Outfit:wght@400;500;600;700&display=swap">
+<style>
+:root {
+  --bg:         #F7F8FC;
+  --surface:    #FFFFFF;
+  --text:       #13172A;
+  --text-mid:   #44496A;
+  --text-soft:  #7A80A0;
+  --accent:     #1E6B45;
+  --border:     #E2E5F0;
+  --ink-dark:   #0F1422;
+  --nav-h:      60px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg:         #0D0F1A;
+    --surface:    #161927;
+    --text:       #E6E8F5;
+    --text-mid:   #8C93B8;
+    --text-soft:  #555C80;
+    --accent:     #2EA86A;
+    --border:     #242840;
+    --ink-dark:   #0D0F1A;
+  }
+}
+:root[data-theme="dark"] {
+  --bg:         #0D0F1A;
+  --surface:    #161927;
+  --text:       #E6E8F5;
+  --text-mid:   #8C93B8;
+  --text-soft:  #555C80;
+  --accent:     #2EA86A;
+  --border:     #242840;
+  --ink-dark:   #0D0F1A;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg); color: var(--text);
+  font-family: 'Outfit', system-ui, sans-serif;
+  font-size: 16px; line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+.nav {
+  position: sticky; top: 0; z-index: 30;
+  background: rgba(247,248,252,0.9);
+  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .nav { background: rgba(13,15,26,0.9); }
+}
+:root[data-theme="dark"] .nav { background: rgba(13,15,26,0.9); }
+.nav-inner {
+  max-width: 860px; margin: 0 auto; padding: 0 28px;
+  height: var(--nav-h); display: flex; align-items: center; gap: 4px;
+}
+.nav-brand { font-weight: 700; font-size: 17px; color: var(--text); text-decoration: none; letter-spacing: -0.03em; margin-right: auto; }
+.nav-brand .dot { color: var(--accent); }
+.nav-back { font-size: 14px; font-weight: 500; color: var(--text-mid); text-decoration: none; padding: 7px 14px; border-radius: 8px; transition: color .15s, background .15s; }
+.nav-back:hover { color: var(--text); background: var(--surface); }
+
+.page-wrap { max-width: 860px; margin: 0 auto; padding: 64px 28px 96px; }
+.page-header { margin-bottom: 48px; border-bottom: 1px solid var(--border); padding-bottom: 32px; }
+.page-header h1 {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 300; letter-spacing: -0.025em;
+  color: var(--text); margin-bottom: 10px;
+}
+.page-header .meta { font-size: 14px; color: var(--text-soft); }
+
+.doc-body h2 {
+  font-size: 18px; font-weight: 700; color: var(--text);
+  letter-spacing: -0.02em; margin-top: 44px; margin-bottom: 12px;
+}
+.doc-body h2:first-child { margin-top: 0; }
+.doc-body p { font-size: 15.5px; color: var(--text-mid); margin-bottom: 14px; line-height: 1.75; }
+.doc-body ul { padding-left: 20px; margin-bottom: 14px; }
+.doc-body ul li { font-size: 15.5px; color: var(--text-mid); margin-bottom: 6px; line-height: 1.7; }
+.doc-body a { color: var(--accent); text-underline-offset: 2px; }
+.doc-body strong { color: var(--text); font-weight: 600; }
+
+.callout {
+  background: var(--surface); border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: 8px; padding: 16px 20px; margin: 24px 0;
+}
+.callout p { margin-bottom: 0; }
+
+.footer {
+  background: var(--ink-dark);
+  border-top: 1px solid rgba(255,255,255,0.07); padding: 36px 28px;
+}
+.footer-inner {
+  max-width: 860px; margin: 0 auto;
+  display: flex; align-items: center;
+  justify-content: space-between; flex-wrap: wrap; gap: 16px;
+}
+.footer-brand { font-weight: 700; font-size: 16px; color: #EEF0F8; text-decoration: none; }
+.footer-brand .dot { color: #5DCEA8; }
+.footer-links { display: flex; gap: 20px; flex-wrap: wrap; }
+.footer-links a { font-size: 13px; color: #8A93B8; text-decoration: none; transition: color .15s; }
+.footer-links a:hover { color: #EEF0F8; }
+.footer-copy { width: 100%; font-size: 12px; color: rgba(138,147,184,0.4); }
+
+@media (max-width: 640px) {
+  .page-wrap { padding: 40px 20px 64px; }
+  .nav-inner { padding: 0 16px; }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">invois<span class="dot">.work</span></a>
+    <a href="/" class="nav-back">← Back to home</a>
+  </div>
+</nav>
+
+<div class="page-wrap">
+  <div class="page-header">
+    <h1>Privacy Policy</h1>
+    <p class="meta">Effective date: 1 October 2026 &nbsp;·&nbsp; Last updated: 28 September 2026</p>
+  </div>
+
+  <div class="doc-body">
+
+    <div class="callout">
+      <p><strong>Short version:</strong> We store only what you give us. We never sell your data. We never share it with third parties except the payment processors and email provider listed below. You can ask us to delete your data at any time.</p>
+    </div>
+
+    <h2>1. Who we are</h2>
+    <p>invois.work (also branded as EzeInvoice) is operated by <strong>Citadel Consulting</strong>. The service is a Telegram-based invoicing tool for independent coaches, tutors, and freelancers. You can contact us at <a href="mailto:info@invois.work">info@invois.work</a>.</p>
+
+    <h2>2. What data we collect</h2>
+    <p>We collect only what is necessary to provide the invoicing service:</p>
+    <ul>
+      <li><strong>Account information:</strong> Your name, email address, and Telegram user ID when you start the bot.</li>
+      <li><strong>Business information:</strong> Your business name, address, logo, and UPI ID — used to populate your invoices.</li>
+      <li><strong>Client records:</strong> Names, mobile numbers, email addresses, and cities of clients you add to the bot. You are responsible for ensuring you have the right to store this information.</li>
+      <li><strong>Invoice data:</strong> Line items, amounts, tax settings, invoice dates, and payment status for invoices you create.</li>
+      <li><strong>Payment receipts:</strong> Transaction IDs you provide when subscribing (UPI reference or Razorpay payment ID). We do not store card numbers, bank account details, or UPI PINs.</li>
+      <li><strong>Usage data:</strong> Basic analytics via Microsoft Clarity (heatmaps, session replays). Clarity data is processed under Microsoft's privacy policy and does not identify you personally.</li>
+    </ul>
+
+    <h2>3. How we use your data</h2>
+    <ul>
+      <li>To generate and deliver PDF invoices to your clients on your behalf.</li>
+      <li>To send email invoices and reminders via our email delivery provider (Resend).</li>
+      <li>To process your subscription payment and issue a subscription receipt.</li>
+      <li>To respond to your support requests.</li>
+      <li>To improve the service (via anonymised usage analytics only).</li>
+    </ul>
+    <p>We do not use your data for advertising, profiling, or any purpose not listed above.</p>
+
+    <h2>4. Who we share data with</h2>
+    <p>We share data only with the following sub-processors, each bound by their own privacy terms:</p>
+    <ul>
+      <li><strong>Resend</strong> (resend.com) — email delivery provider. Receives your clients' email addresses and the invoice content needed to deliver emails on your behalf.</li>
+      <li><strong>Razorpay</strong> — payment processor for Indian subscribers. Processes your subscription payment. We share only your name and email for payment processing; Razorpay never receives your invoice or client data.</li>
+      <li><strong>DodoPayments</strong> — payment processor for subscribers outside India. Same scope as Razorpay.</li>
+      <li><strong>Telegram</strong> — the messaging platform through which the bot operates. Your Telegram ID and messages are subject to Telegram's own privacy policy.</li>
+      <li><strong>Microsoft Clarity</strong> — website analytics. Collects anonymised session data on invois.work. Does not receive your invoice or client data.</li>
+    </ul>
+    <p>We do not sell, rent, or trade your data to any third party.</p>
+
+    <h2>5. Data storage and security</h2>
+    <p>Your data is stored in a SQLite database on our production server (hosted on Railway). Database files are not publicly accessible. Backups are encrypted. PDF invoices are stored temporarily during generation and delivery; they are not retained on our servers permanently.</p>
+    <p>We use HTTPS for all web traffic. Bot communications travel over Telegram's encrypted protocol.</p>
+
+    <h2>6. Data retention</h2>
+    <p>We retain your data for as long as your account is active. If you cancel your subscription and request deletion, we will permanently delete your account, client records, and invoice history within 30 days. Payment receipts may be retained for up to 7 years for accounting and legal compliance purposes.</p>
+
+    <h2>7. Your rights</h2>
+    <p>You have the right to:</p>
+    <ul>
+      <li><strong>Access</strong> — request a copy of all data we hold about you.</li>
+      <li><strong>Correction</strong> — update any incorrect information (most fields are editable directly in the bot).</li>
+      <li><strong>Deletion</strong> — request that we delete your account and all associated data.</li>
+      <li><strong>Export</strong> — export your invoice and customer data to CSV at any time from within the bot.</li>
+    </ul>
+    <p>To exercise any of these rights, email <a href="mailto:info@invois.work">info@invois.work</a>. We will respond within 30 days.</p>
+
+    <h2>8. Cookies</h2>
+    <p>The invois.work website uses no first-party cookies. Microsoft Clarity may set third-party cookies for analytics purposes. You can opt out of Clarity tracking by using a browser extension that blocks analytics scripts.</p>
+
+    <h2>9. Children</h2>
+    <p>invois.work is not directed at children under 13. We do not knowingly collect data from children. If you believe a child has provided us with personal data, contact us at <a href="mailto:info@invois.work">info@invois.work</a> and we will delete it promptly.</p>
+
+    <h2>10. Changes to this policy</h2>
+    <p>We may update this policy from time to time. When we make material changes, we will notify active subscribers via the Telegram bot before the changes take effect. The "Last updated" date at the top of this page reflects the most recent revision.</p>
+
+    <h2>11. Contact</h2>
+    <p>Questions about this policy? Email us at <a href="mailto:info@invois.work">info@invois.work</a>. We aim to respond within 2 business days.</p>
+
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <a href="/" class="footer-brand">invois<span class="dot">.work</span></a>
+    <div class="footer-links">
+      <a href="/privacy">Privacy Policy</a>
+      <a href="/terms">Terms of Service</a>
+      <a href="mailto:info@invois.work">Contact</a>
+    </div>
+    <p class="footer-copy">&copy; 2026 Citadel Consulting. All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>

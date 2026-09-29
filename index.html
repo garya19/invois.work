@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Invois — Send invoices to customers in under a minute</title>
+<meta name="description" content="No app to install. No dashboard to learn. Create professional PDF invoices in your brand, send by email and message, and track payments. 3 invoices free, no card needed.">
+<script type="text/javascript">
+  (function(c,l,a,r,i,t,y){
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "yikqcj80tz");
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300&family=Outfit:wght@400;500;600;700&display=swap">
+<style>
+/* ── Tokens ── */
+:root {
+  --bg:           #F7F8FC;
+  --surface:      #FFFFFF;
+  --surface2:     #F0F2F8;
+  --text:         #13172A;
+  --text-mid:     #44496A;
+  --text-soft:    #7A80A0;
+  --accent:       #1E6B45;
+  --accent-mid:   #258A58;
+  --accent-light: #E6F4EC;
+  --accent-glow:  rgba(30,107,69,0.12);
+  --cta:          #C45F18;
+  --cta-hover:    #A34E12;
+  --border:       #E2E5F0;
+  --border-mid:   #CDD0E4;
+  --ink-dark:     #0F1422;
+  --tg-blue:      #229ED9;
+  --nav-h:        60px;
+  --r:            12px;
+  --r-sm:         8px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg:           #0D0F1A;
+    --surface:      #161927;
+    --surface2:     #1C2035;
+    --text:         #E6E8F5;
+    --text-mid:     #8C93B8;
+    --text-soft:    #555C80;
+    --accent:       #2EA86A;
+    --accent-mid:   #35C07A;
+    --accent-light: #102A1E;
+    --accent-glow:  rgba(46,168,106,0.12);
+    --cta:          #D46820;
+    --cta-hover:    #B85618;
+    --border:       #242840;
+    --border-mid:   #2E3250;
+    --ink-dark:     #0D0F1A;
+  }
+}
+:root[data-theme="dark"] {
+  --bg:           #0D0F1A;
+  --surface:      #161927;
+  --surface2:     #1C2035;
+  --text:         #E6E8F5;
+  --text-mid:     #8C93B8;
+  --text-soft:    #555C80;
+  --accent:       #2EA86A;
+  --accent-mid:   #35C07A;
+  --accent-light: #102A1E;
+  --accent-glow:  rgba(46,168,106,0.12);
+  --cta:          #D46820;
+  --cta-hover:    #B85618;
+  --border:       #242840;
+  --border-mid:   #2E3250;
+  --ink-dark:     #0D0F1A;
+}
+
+/* ── Reset ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+[hidden] { display: none !important; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Outfit', system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Nav ── */
+.nav {
+  position: sticky; top: 0; z-index: 30;
+  background: rgba(247,248,252,0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .nav { background: rgba(13,15,26,0.88); }
+}
+:root[data-theme="dark"] .nav { background: rgba(13,15,26,0.88); }
+.nav-inner {
+  max-width: 1100px; margin: 0 auto;
+  padding: 0 28px; height: var(--nav-h);
+  display: flex; align-items: center; gap: 4px;
+}
+.nav-brand {
+  font-weight: 700; font-size: 17px;
+  color: var(--text); text-decoration: none;
+  letter-spacing: -0.03em; margin-right: auto;
+}
+.nav-brand .dot { color: var(--accent); }
+.nav-link {
+  font-size: 14px; font-weight: 500;
+  color: var(--text-mid); text-decoration: none;
+  padding: 7px 14px; border-radius: var(--r-sm);
+  transition: color .15s, background .15s;
+}
+.nav-link:hover { color: var(--text); background: var(--surface2); }
+.nav-cta {
+  display: inline-flex; align-items: center; gap: 7px;
+  background: var(--accent); color: #fff;
+  font-size: 14px; font-weight: 600;
+  padding: 9px 18px; border-radius: var(--r-sm);
+  text-decoration: none; margin-left: 6px;
+  transition: background .15s, box-shadow .15s;
+}
+.nav-cta:hover { background: var(--accent-mid); box-shadow: 0 4px 16px var(--accent-glow); }
+
+/* ── Hero ── */
+.hero {
+  background: var(--ink-dark);
+  overflow: hidden; position: relative;
+}
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 70% 60% at 60% 40%, rgba(30,107,69,0.22) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-inner {
+  max-width: 1100px; margin: 0 auto;
+  padding: 96px 28px 80px;
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 56px; align-items: center;
+}
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 7px;
+  background: rgba(30,107,69,0.2); border: 1px solid rgba(30,107,69,0.35);
+  color: #5DCEA8; font-size: 12.5px; font-weight: 600;
+  letter-spacing: 0.06em; padding: 5px 13px; border-radius: 20px;
+  margin-bottom: 22px;
+}
+.hero-badge .pulse {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: #5DCEA8;
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(93,206,168,0.5); }
+  70%  { box-shadow: 0 0 0 7px rgba(93,206,168,0); }
+  100% { box-shadow: 0 0 0 0 rgba(93,206,168,0); }
+}
+.hero h1 {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: clamp(34px, 4.5vw, 54px);
+  font-weight: 300; line-height: 1.08;
+  letter-spacing: -0.03em; color: #EEF0F8;
+  text-wrap: balance; margin-bottom: 20px;
+}
+.hero h1 em { font-style: italic; color: #82BDFF; }
+.hero-sub {
+  font-size: 17px; line-height: 1.65;
+  color: #8A93B8; max-width: 46ch; margin-bottom: 36px;
+}
+.hero-actions { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+.btn-hero {
+  display: inline-flex; align-items: center; gap: 9px;
+  background: var(--cta); color: #fff;
+  font-size: 15.5px; font-weight: 600;
+  padding: 14px 26px; border-radius: var(--r);
+  text-decoration: none;
+  transition: background .15s, box-shadow .15s;
+  box-shadow: 0 4px 20px rgba(196,95,24,0.3);
+}
+.btn-hero:hover { background: var(--cta-hover); box-shadow: 0 6px 28px rgba(196,95,24,0.4); }
+.btn-hero-ghost {
+  display: inline-flex; align-items: center; gap: 7px;
+  color: #8A93B8; font-size: 15px; font-weight: 500;
+  text-decoration: none; padding: 14px 6px;
+  transition: color .15s;
+}
+.btn-hero-ghost:hover { color: #EEF0F8; }
+.hero-note {
+  margin-top: 20px; font-size: 13px; color: #555E80;
+  display: flex; align-items: center; gap: 18px; flex-wrap: wrap;
+}
+.hero-note span { display: flex; align-items: center; gap: 6px; }
+.hero-note svg { color: #5DCEA8; flex-shrink: 0; }
+
+/* ── Hero visual ── */
+.hero-tg-window {
+  background: #1E2235;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px; padding: 16px;
+  width: 100%; max-width: 320px;
+  box-shadow: 0 24px 64px rgba(0,0,0,0.5);
+}
+.tg-header {
+  display: flex; align-items: center; gap: 10px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  margin-bottom: 14px;
+}
+.tg-avatar {
+  width: 36px; height: 36px; border-radius: 50%;
+  background: linear-gradient(135deg, #1E6B45, #2EA86A);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px; font-weight: 700; color: #fff; flex-shrink: 0;
+}
+.tg-name { font-size: 14px; font-weight: 600; color: #EEF0F8; }
+.tg-status { font-size: 11.5px; color: #5DCEA8; }
+.tg-messages { display: flex; flex-direction: column; gap: 8px; }
+.tg-msg {
+  padding: 8px 12px; border-radius: 10px;
+  font-size: 12.5px; line-height: 1.5;
+}
+.tg-msg.bot {
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: rgba(255,255,255,0.85); align-self: flex-start;
+  border-bottom-left-radius: 3px; max-width: 85%;
+}
+.tg-msg.user {
+  background: rgba(30,107,69,0.35);
+  border: 1px solid rgba(30,107,69,0.45);
+  color: rgba(255,255,255,0.9); align-self: flex-end;
+  border-bottom-right-radius: 3px; max-width: 75%;
+}
+.tg-invoice-card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 8px; padding: 12px 14px;
+  margin-top: 4px; align-self: flex-start; max-width: 92%;
+}
+.tg-invoice-card .ic-label {
+  font-size: 10px; font-weight: 600;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: #5DCEA8; margin-bottom: 8px;
+}
+.tg-invoice-card .ic-row {
+  display: flex; justify-content: space-between;
+  font-size: 11.5px; color: rgba(255,255,255,0.55);
+  padding: 3px 0; font-variant-numeric: tabular-nums;
+}
+.tg-invoice-card .ic-total {
+  display: flex; justify-content: space-between;
+  font-size: 13px; font-weight: 700; color: rgba(255,255,255,0.9);
+  border-top: 1px solid rgba(255,255,255,0.12);
+  padding-top: 8px; margin-top: 6px;
+  font-variant-numeric: tabular-nums;
+}
+.tg-btn-row { display: flex; gap: 6px; margin-top: 10px; }
+.tg-btn {
+  flex: 1; text-align: center;
+  background: rgba(34,158,217,0.2);
+  border: 1px solid rgba(34,158,217,0.3);
+  color: #5BB8E8; font-size: 11px; font-weight: 600;
+  padding: 7px 4px; border-radius: 6px;
+}
+
+/* ── Logo strip ── */
+.logo-strip {
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  background: var(--surface); padding: 18px 28px;
+}
+.logo-strip-inner {
+  max-width: 1100px; margin: 0 auto;
+  display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+}
+.logo-strip-label {
+  font-size: 13px; color: var(--text-soft); font-weight: 500;
+  white-space: nowrap; margin-right: 8px;
+}
+.logo-strip-names { display: flex; align-items: center; flex-wrap: wrap; }
+.ls-name {
+  font-size: 13.5px; font-weight: 600; color: var(--text-soft);
+  padding: 4px 14px; border-right: 1px solid var(--border);
+}
+.ls-name:last-child { border-right: none; }
+
+/* ── Section wrapper ── */
+.section { max-width: 1100px; margin: 0 auto; padding: 88px 28px; }
+.section-label {
+  font-size: 12px; font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 12px;
+}
+.section-heading {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: clamp(26px, 3.5vw, 40px);
+  font-weight: 300; line-height: 1.12;
+  letter-spacing: -0.025em; color: var(--text);
+  text-wrap: balance; margin-bottom: 14px;
+}
+.section-sub {
+  font-size: 17px; color: var(--text-mid);
+  max-width: 54ch; line-height: 1.7;
+}
+
+/* ── How it works ── */
+.how-section { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.steps-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 2px; margin-top: 52px;
+}
+.step { padding: 36px 32px; background: var(--surface); position: relative; }
+.step + .step::before {
+  content: ''; position: absolute; left: 0; top: 32px; bottom: 32px;
+  width: 1px; background: var(--border);
+}
+.step-num {
+  width: 36px; height: 36px; border-radius: 50%;
+  background: var(--accent-light); border: 1.5px solid var(--accent);
+  color: var(--accent); font-weight: 700; font-size: 14px;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 18px;
+}
+.step h3 { font-size: 17px; font-weight: 700; letter-spacing: -0.02em; color: var(--text); margin-bottom: 8px; }
+.step p { font-size: 14.5px; color: var(--text-mid); line-height: 1.65; }
+
+/* ── Features grid ── */
+.features-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 20px; margin-top: 52px;
+}
+.feature-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--r); padding: 28px;
+  transition: border-color .2s, box-shadow .2s;
+}
+.feature-card:hover { border-color: var(--border-mid); box-shadow: 0 4px 24px rgba(0,0,0,0.06); }
+.feature-icon {
+  width: 42px; height: 42px; border-radius: 10px;
+  background: var(--accent-light);
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 16px; color: var(--accent);
+}
+.feature-card h3 { font-size: 16px; font-weight: 700; letter-spacing: -0.02em; color: var(--text); margin-bottom: 7px; }
+.feature-card p { font-size: 14px; color: var(--text-mid); line-height: 1.65; }
+
+/* ── Invoice showcase ── */
+.showcase-section {
+  background: var(--ink-dark); padding: 88px 28px;
+  position: relative; overflow: hidden;
+}
+.showcase-section::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(ellipse 60% 80% at 30% 50%, rgba(30,107,69,0.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+.showcase-inner {
+  max-width: 1100px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 64px; align-items: center; position: relative;
+}
+.showcase-text .section-label { color: #5DCEA8; }
+.showcase-text .section-heading { color: #EEF0F8; }
+.showcase-text .section-sub { color: #8A93B8; }
+.showcase-list {
+  list-style: none; margin-top: 28px;
+  display: flex; flex-direction: column; gap: 12px;
+}
+.showcase-list li {
+  display: flex; align-items: flex-start; gap: 10px;
+  font-size: 15px; color: #8A93B8;
+}
+.showcase-list li::before {
+  content: ''; width: 6px; height: 6px; border-radius: 50%;
+  background: #5DCEA8; flex-shrink: 0; margin-top: 8px;
+}
+.invoice-preview {
+  background: #fff; border-radius: 14px; padding: 32px;
+  box-shadow: 0 24px 64px rgba(0,0,0,0.5);
+  font-family: 'Outfit', sans-serif;
+}
+.ip-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 24px; }
+.ip-logo-placeholder {
+  width: 52px; height: 52px; border-radius: 8px;
+  background: linear-gradient(135deg, #1E6B45, #2EA86A);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; font-weight: 700; color: #fff; margin-bottom: 8px;
+}
+.ip-biz { font-size: 13px; font-weight: 700; color: #13172A; }
+.ip-biz-sub { font-size: 11px; color: #7A80A0; }
+.ip-right { text-align: right; }
+.ip-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; color: #13172A; }
+.ip-num { font-size: 12px; color: #7A80A0; margin-top: 2px; }
+.ip-meta { font-size: 11px; color: #7A80A0; margin-top: 4px; }
+.ip-divider { height: 1px; background: #E2E5F0; margin: 18px 0; }
+.ip-bill-label { font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #7A80A0; margin-bottom: 4px; }
+.ip-bill-name { font-size: 13px; font-weight: 600; color: #13172A; }
+.ip-bill-sub { font-size: 11px; color: #7A80A0; }
+.ip-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+.ip-table th { font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #7A80A0; text-align: left; padding: 0 0 8px; border-bottom: 1px solid #E2E5F0; }
+.ip-table th:last-child { text-align: right; }
+.ip-table td { font-size: 12px; color: #44496A; padding: 8px 0; border-bottom: 1px solid #F0F2F8; vertical-align: top; }
+.ip-table td:last-child { text-align: right; font-variant-numeric: tabular-nums; }
+.ip-table .total-row td { border-bottom: none; font-weight: 700; font-size: 14px; color: #13172A; padding-top: 12px; border-top: 2px solid #13172A; }
+.ip-sent-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: #E6F4EC; border: 1px solid #B8DFC8;
+  color: #1E6B45; font-size: 11px; font-weight: 700;
+  padding: 4px 11px; border-radius: 20px; margin-top: 16px;
+}
+.ip-sent-badge::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: #1E6B45; }
+
+/* ── Pricing ── */
+.pricing-section { background: var(--bg); padding: 88px 28px; }
+.pricing-center { text-align: center; max-width: 600px; margin: 0 auto 52px; }
+.pricing-cards {
+  max-width: 900px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+}
+.pricing-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--r); padding: 36px; position: relative;
+}
+.pricing-card.featured {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px var(--accent), 0 8px 32px var(--accent-glow);
+}
+.featured-label {
+  position: absolute; top: -13px; left: 50%; transform: translateX(-50%);
+  background: var(--accent); color: #fff;
+  font-size: 11.5px; font-weight: 700;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  padding: 4px 14px; border-radius: 20px; white-space: nowrap;
+}
+.pricing-plan { font-size: 14px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--text-soft); margin-bottom: 10px; }
+.pricing-price { display: flex; align-items: baseline; gap: 3px; margin-bottom: 6px; }
+.pricing-price .currency { font-size: 20px; font-weight: 600; color: var(--text); padding-top: 4px; }
+.pricing-price .amount { font-size: 46px; font-weight: 700; letter-spacing: -0.04em; color: var(--text); line-height: 1; }
+.pricing-price .period { font-size: 14px; color: var(--text-soft); }
+.pricing-desc { font-size: 14px; color: var(--text-mid); margin-bottom: 28px; line-height: 1.6; }
+.pricing-features { list-style: none; display: flex; flex-direction: column; gap: 11px; margin-bottom: 32px; }
+.pricing-features li { display: flex; align-items: flex-start; gap: 10px; font-size: 14.5px; color: var(--text-mid); }
+.pricing-features li svg { flex-shrink: 0; color: var(--accent); margin-top: 2px; }
+.btn-pricing {
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  width: 100%; padding: 14px 20px; border-radius: var(--r);
+  font-size: 15px; font-weight: 600; text-decoration: none;
+  transition: background .15s, box-shadow .15s;
+  font-family: 'Outfit', sans-serif;
+}
+.btn-pricing.primary { background: var(--accent); color: #fff; box-shadow: 0 4px 16px var(--accent-glow); }
+.btn-pricing.primary:hover { background: var(--accent-mid); }
+.btn-pricing.outline { background: transparent; color: var(--text); border: 1.5px solid var(--border-mid); }
+.btn-pricing.outline:hover { background: var(--surface2); }
+.pricing-note { text-align: center; margin-top: 20px; font-size: 13px; color: var(--text-soft); }
+
+/* ── Testimonials ── */
+.testimonial-section {
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 88px 28px;
+}
+.testimonials-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 20px; margin-top: 48px;
+}
+.t-card {
+  background: var(--bg); border: 1px solid var(--border);
+  border-radius: var(--r); padding: 28px;
+  display: flex; flex-direction: column; gap: 16px;
+}
+.t-stars { color: #F5A623; font-size: 14px; letter-spacing: 2px; }
+.t-quote { font-size: 15px; color: var(--text-mid); line-height: 1.7; flex: 1; }
+.t-author { display: flex; align-items: center; gap: 12px; }
+.t-avatar {
+  width: 42px; height: 42px; border-radius: 50%;
+  background: var(--accent-light); color: var(--accent);
+  font-weight: 700; font-size: 16px;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.t-name { font-size: 14.5px; font-weight: 600; color: var(--text); }
+.t-role { font-size: 12.5px; color: var(--text-soft); }
+
+/* ── FAQ ── */
+.faq-section { padding: 88px 28px; }
+.faq-inner { max-width: 720px; margin: 0 auto; }
+.faq-inner .section-heading { margin-bottom: 40px; }
+.faq-item { border-top: 1px solid var(--border); padding: 20px 0; }
+.faq-item:last-child { border-bottom: 1px solid var(--border); }
+.faq-q {
+  width: 100%; background: none; border: none;
+  display: flex; align-items: center; justify-content: space-between;
+  cursor: pointer; text-align: left;
+  font-size: 16px; font-weight: 600; color: var(--text);
+  font-family: 'Outfit', sans-serif; gap: 12px; padding: 0;
+}
+.faq-q .icon {
+  flex-shrink: 0; width: 22px; height: 22px;
+  border-radius: 50%; border: 1.5px solid var(--border-mid);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--text-soft); font-size: 16px; font-weight: 300;
+  transition: transform .2s, background .2s, border-color .2s;
+}
+.faq-item.open .faq-q .icon {
+  transform: rotate(45deg);
+  background: var(--accent-light); border-color: var(--accent); color: var(--accent);
+}
+.faq-a {
+  max-height: 0; overflow: hidden;
+  transition: max-height .3s ease, padding .3s ease;
+  font-size: 15px; color: var(--text-mid); line-height: 1.7;
+}
+.faq-item.open .faq-a { max-height: 300px; padding-top: 12px; }
+
+/* ── Final CTA ── */
+.final-cta {
+  background: var(--ink-dark); padding: 96px 28px;
+  text-align: center; position: relative; overflow: hidden;
+}
+.final-cta::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(ellipse 50% 70% at 50% 50%, rgba(30,107,69,0.2) 0%, transparent 70%);
+  pointer-events: none;
+}
+.final-cta-inner { max-width: 560px; margin: 0 auto; position: relative; }
+.final-cta h2 {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 300; line-height: 1.1;
+  letter-spacing: -0.03em; color: #EEF0F8; margin-bottom: 14px;
+}
+.final-cta h2 em { font-style: italic; color: #82BDFF; }
+.final-cta p { font-size: 16.5px; color: #8A93B8; margin-bottom: 36px; max-width: 40ch; margin-left: auto; margin-right: auto; }
+.final-cta-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+.final-cta-note { margin-top: 18px; font-size: 13px; color: #555E80; }
+
+/* ── Privacy bar ── */
+.privacy-bar {
+  background: var(--surface); border-top: 1px solid var(--border); padding: 28px; text-align: center;
+}
+.privacy-bar p {
+  max-width: 62ch; margin: 0 auto;
+  font-size: 13.5px; color: var(--text-soft); line-height: 1.7;
+}
+.privacy-bar a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+
+/* ── Footer ── */
+.footer {
+  background: var(--ink-dark);
+  border-top: 1px solid rgba(255,255,255,0.07); padding: 40px 28px;
+}
+.footer-inner {
+  max-width: 1100px; margin: 0 auto;
+  display: flex; align-items: center;
+  justify-content: space-between; flex-wrap: wrap; gap: 20px;
+}
+.footer-brand { font-weight: 700; font-size: 16px; color: #EEF0F8; text-decoration: none; }
+.footer-brand .dot { color: #5DCEA8; }
+.footer-links { display: flex; gap: 24px; flex-wrap: wrap; }
+.footer-links a { font-size: 13.5px; color: #8A93B8; text-decoration: none; transition: color .15s; }
+.footer-links a:hover { color: #EEF0F8; }
+.footer-copy { width: 100%; font-size: 12px; color: rgba(138,147,184,0.45); }
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .hero-inner { grid-template-columns: 1fr; gap: 40px; }
+  .hero-tg-window { max-width: 100%; }
+  .steps-grid { grid-template-columns: 1fr; }
+  .step + .step::before { display: none; }
+  .features-grid { grid-template-columns: 1fr 1fr; }
+  .showcase-inner { grid-template-columns: 1fr; }
+  .invoice-preview { max-width: 480px; }
+  .pricing-cards { grid-template-columns: 1fr; max-width: 440px; }
+  .testimonials-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 640px) {
+  .nav-inner { padding: 0 16px; }
+  .nav-link { display: none; }
+  .hero-inner { padding: 60px 20px 52px; }
+  .hero-actions { flex-direction: column; align-items: stretch; }
+  .btn-hero { justify-content: center; }
+  .section { padding: 60px 20px; }
+  .features-grid { grid-template-columns: 1fr; }
+  .testimonials-grid { grid-template-columns: 1fr; }
+  .final-cta-actions { flex-direction: column; align-items: stretch; }
+  .final-cta-actions .btn-hero { justify-content: center; }
+  .logo-strip-inner { flex-direction: column; align-items: flex-start; gap: 8px; }
+  .ls-name { border-right: none; padding: 2px 0; }
+  .pricing-card { padding: 28px 22px; }
+}
+@media (max-width: 400px) {
+  .nav-cta { padding: 8px 14px; font-size: 13px; }
+  .hero h1 { font-size: 28px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── Nav ── -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">invois<span class="dot">.work</span></a>
+    <a href="#how-it-works" class="nav-link">How it works</a>
+    <a href="#pricing" class="nav-link">Pricing</a>
+    <a href="https://t.me/sendinvois_bot" class="nav-cta" target="_blank" rel="noopener">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.24 13.748l-2.96-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.908.811z"/></svg>
+      Open Bot
+    </a>
+  </div>
+</nav>
+
+<!-- ── Hero ── -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-badge"><span class="pulse"></span>Live on Telegram</div>
+      <h1>Send invoice to your<br>customers <em>under a minute</em></h1>
+      <p class="hero-sub">No app to install. No dashboard to learn. Create professional PDF invoices in your brand, send them by email and message, and track payments.</p>
+      <div class="hero-actions">
+        <a href="https://t.me/sendinvois_bot" class="btn-hero" target="_blank" rel="noopener">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="white"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.24 13.748l-2.96-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.908.811z"/></svg>
+          Start Free Trial
+        </a>
+        <a href="#how-it-works" class="btn-hero-ghost">See how it works →</a>
+      </div>
+      <div class="hero-note">
+        <span><svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>No card needed</span>
+        <span><svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Cancel anytime</span>
+        <span><svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Your data stays yours</span>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-tg-window">
+        <div class="tg-header">
+          <div class="tg-avatar">EI</div>
+          <div>
+            <div class="tg-name">Invois Bot</div>
+            <div class="tg-status">● online</div>
+          </div>
+        </div>
+        <div class="tg-messages">
+          <div class="tg-msg bot">Hi Priya 👋 Invoice created! Here's the preview:</div>
+          <div class="tg-invoice-card" id="mock-invoice">
+            <div class="ic-label">Tax Invoice · INV-2026-041</div>
+            <div class="ic-row"><span>Monthly coaching</span><span>3,500</span></div>
+            <div class="ic-row"><span>Nutrition plan</span><span>800</span></div>
+            <div class="ic-row"><span>GST 18%</span><span>774</span></div>
+            <div class="ic-total"><span>Total</span><span>Rs. 5,074</span></div>
+          </div>
+          <div class="tg-msg bot">Send to Rahul Sharma (rahul@email.com)?</div>
+          <div class="tg-btn-row">
+            <div class="tg-btn">✓ Send Invoice</div>
+            <div class="tg-btn">✎ Edit</div>
+          </div>
+          <div class="tg-msg user">Send!</div>
+          <div class="tg-msg bot">✅ Invoice sent to rahul@email.com with PDF attached.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Logo strip ── -->
+<div class="logo-strip">
+  <div class="logo-strip-inner">
+    <span class="logo-strip-label">Used by independent coaches &amp; tutors across the world</span>
+    <div class="logo-strip-names">
+      <span class="ls-name">Health Coaches</span>
+      <span class="ls-name">Yoga Instructors</span>
+      <span class="ls-name">Maths Tutors</span>
+      <span class="ls-name">Dance Teachers</span>
+      <span class="ls-name">Freelance Consultants</span>
+      <span class="ls-name">Music Teachers</span>
+    </div>
+  </div>
+</div>
+
+<!-- ── How it works ── -->
+<div class="how-section" id="how-it-works">
+  <div class="section">
+    <p class="section-label">How it works</p>
+    <h2 class="section-heading">From setup to first invoice<br>in under 5 minutes</h2>
+    <div class="steps-grid">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>Start the bot on Telegram</h3>
+        <p>Open @sendinvois_bot and tap Start. Enter your name, email, and upload your logo. Takes 2 minutes — no password, no separate dashboard.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>Add your clients</h3>
+        <p>Save each client's name, mobile, email, and city. Takes 30 seconds per client. Edit or update anytime from the bot menu.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>Create and send invoices</h3>
+        <p>Pick a client, add your line items, choose a tax, and preview the PDF. One tap sends it to their email with the PDF attached.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── Features ── -->
+<div class="section">
+  <p class="section-label">Features</p>
+  <h2 class="section-heading">Everything you need.<br>Nothing you don't.</h2>
+  <p class="section-sub" style="margin-top:4px;">Built for solo coaches and tutors, not accountants. Every feature is reachable with 2–3 taps.</p>
+  <div class="features-grid">
+    <div class="feature-card">
+      <div class="feature-icon"><svg width="20" height="20" fill="none" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3" stroke="currentColor" stroke-width="1.8"/><path d="M7 8h10M7 12h7M7 16h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+      <h3>Professional PDF invoices</h3>
+      <p>Your logo, business name, client details, line items, and totals — formatted as a clean, professional PDF every time.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon"><svg width="20" height="20" fill="none" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="currentColor" stroke-width="1.8"/><path d="M22 6l-10 7L2 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+      <h3>Email + Telegram delivery</h3>
+      <p>Send invoices to your client's email with the PDF attached, or share directly in Telegram if they're on it.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon"><svg width="20" height="20" fill="none" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></div>
+      <h3>Tax invoice support</h3>
+      <p>GST, VAT, HST, or custom tax — choose per invoice. The PDF header automatically shows "Tax Invoice" when applicable.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon"><svg width="20" height="20" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.8"/><path d="M12 8v4l3 3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+      <h3>Payment reminders</h3>
+      <p>Send a gentle nudge to clients who haven't paid. Re-attach the PDF or send a text-only reminder — your choice.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon"><svg width="20" height="20" fill="none" viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2M9 5a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2M9 5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2" stroke="currentColor" stroke-width="1.8"/><path d="M9 12h6M9 16h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+      <h3>Track who has paid</h3>
+      <p>Mark invoices paid with one tap. See all unpaid invoices at a glance — no spreadsheet, no sticky notes.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon"><svg width="20" height="20" fill="none" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" stroke="currentColor" stroke-width="1.8"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+      <h3>CSV &amp; Google Sheets export</h3>
+      <p>Export your customers and invoices to a CSV that opens in Excel, or push directly to your own Google Sheet.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon"><svg width="20" height="20" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+      <h3>Client address book</h3>
+      <p>Store client name, mobile, email, and city. Edit anytime. Reuse in seconds — no retyping addresses for returning clients.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon"><svg width="20" height="20" fill="none" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" stroke="currentColor" stroke-width="1.8"/><path d="M12 6v6l4 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+      <h3>Multi-currency</h3>
+      <p>INR for India, USD, EUR, GBP, or any currency for international clients. The PDF shows the correct symbol automatically.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon"><svg width="20" height="20" fill="none" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></div>
+      <h3>Private &amp; secure</h3>
+      <p>Your data is never sold. Payments processed by Razorpay (India) or DodoPayments — we never see your card number.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ── Invoice showcase ── -->
+<div class="showcase-section">
+  <div class="showcase-inner">
+    <div class="showcase-text">
+      <p class="section-label">The output</p>
+      <h2 class="section-heading">A PDF your clients<br>will trust</h2>
+      <p class="section-sub">Every invoice carries your logo, your business details, and your client's information — formatted like a document an accountant would approve.</p>
+      <ul class="showcase-list">
+        <li>Auto-numbered (INV-2026-001, INV-2026-002…)</li>
+        <li>Itemised line items with quantity × rate</li>
+        <li>Tax breakdown (GST, VAT, HST, or custom)</li>
+        <li>Your UPI ID or bank details at the bottom</li>
+        <li>Sent as email attachment — clients can forward it to their accounts team</li>
+      </ul>
+    </div>
+    <div>
+      <div class="invoice-preview" id="invoice-showcase">
+        <div class="ip-header">
+          <div class="ip-from">
+            <div class="ip-logo-placeholder">P</div>
+            <div class="ip-biz">Priya Mehta Wellness</div>
+            <div class="ip-biz-sub">priya@wellnesscoach.in · Mumbai</div>
+          </div>
+          <div class="ip-right">
+            <div class="ip-title">Tax Invoice</div>
+            <div class="ip-num">INV-2026-041</div>
+            <div class="ip-meta">Date: 28 Sep 2026</div>
+          </div>
+        </div>
+        <div class="ip-divider"></div>
+        <div class="ip-bill-label">Billed to</div>
+        <div class="ip-bill-name">Rahul Sharma</div>
+        <div class="ip-bill-sub">rahul@sharma.in · Bangalore</div>
+        <table class="ip-table">
+          <thead>
+            <tr><th>Description</th><th>Qty</th><th>Rate</th><th>Amount</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Monthly coaching sessions</td><td>1</td><td>3,500</td><td>3,500</td></tr>
+            <tr><td>Nutrition plan (custom)</td><td>1</td><td>800</td><td>800</td></tr>
+            <tr><td>GST @ 18%</td><td></td><td></td><td>774</td></tr>
+            <tr class="total-row"><td colspan="3">Total</td><td>Rs. 5,074</td></tr>
+          </tbody>
+        </table>
+        <div class="ip-sent-badge">Sent via invois.work</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── Testimonials ── -->
+<div class="testimonial-section">
+  <div style="max-width:1100px;margin:0 auto;padding:0 28px;">
+    <p class="section-label">What coaches say</p>
+    <h2 class="section-heading">Real feedback from real users</h2>
+    <div class="testimonials-grid">
+      <div class="t-card">
+        <div class="t-stars">★★★★★</div>
+        <p class="t-quote">"I used to spend 30 minutes making invoices in Excel. Now I do it in Telegram while my client is still on the call. The PDF looks completely professional."</p>
+        <div class="t-author">
+          <div class="t-avatar">P</div>
+          <div><div class="t-name">Priya M.</div><div class="t-role">Health Coach, Mumbai</div></div>
+        </div>
+      </div>
+      <div class="t-card">
+        <div class="t-stars">★★★★★</div>
+        <p class="t-quote">"My students' parents always ask for GST invoices. Invois handles it automatically — setup took 5 minutes and I haven't touched a spreadsheet since."</p>
+        <div class="t-author">
+          <div class="t-avatar">A</div>
+          <div><div class="t-name">Arjun S.</div><div class="t-role">Maths Tutor, Bangalore</div></div>
+        </div>
+      </div>
+      <div class="t-card">
+        <div class="t-stars">★★★★★</div>
+        <p class="t-quote">"I teach 15 students and tracking who has paid used to be a mess. Now I send a reminder from the bot and mark it paid when they transfer. Done."</p>
+        <div class="t-author">
+          <div class="t-avatar">N</div>
+          <div><div class="t-name">Neha R.</div><div class="t-role">Dance Instructor, Pune</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── Pricing ── -->
+<div class="pricing-section" id="pricing">
+  <div class="pricing-center">
+    <p class="section-label">Pricing</p>
+    <h2 class="section-heading">Simple, honest pricing</h2>
+    <p style="font-size:16px;color:var(--text-mid);margin-top:8px;">Try it free. Subscribe when you're ready. One flat fee, unlimited invoices.</p>
+  </div>
+  <div class="pricing-cards">
+    <div class="pricing-card">
+      <div class="pricing-plan">Free Trial</div>
+      <div class="pricing-price">
+        <span class="amount" style="font-size:38px;color:var(--text-mid);">Free</span>
+      </div>
+      <p class="pricing-desc">Get started with no commitment. Perfect for trying before you subscribe.</p>
+      <ul class="pricing-features">
+        <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>3 invoices included</li>
+        <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>PDF generation &amp; email delivery</li>
+        <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Client address book</li>
+        <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>No card required</li>
+      </ul>
+      <a href="https://t.me/sendinvois_bot" class="btn-pricing outline" target="_blank" rel="noopener">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.24 13.748l-2.96-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.908.811z"/></svg>
+        Start free trial
+      </a>
+    </div>
+    <div class="pricing-card featured">
+      <div class="featured-label">Most popular</div>
+      <div class="pricing-plan">Pro</div>
+      <div class="pricing-price" id="price-display">
+        <span class="currency">Rs.</span>
+        <span class="amount">299</span>
+        <span class="period">/month</span>
+      </div>
+      <p class="pricing-desc">Unlimited invoices, full features. Cancel anytime — no lock-in, no questions asked.</p>
+      <ul class="pricing-features">
+        <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Unlimited invoices &amp; reminders</li>
+        <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>PDF + email + Telegram delivery</li>
+        <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>GST / VAT / custom tax invoices</li>
+        <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Google Sheets &amp; CSV export</li>
+        <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Coach branding: logo, UPI ID, address</li>
+        <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Email support</li>
+      </ul>
+      <div id="subscribe-india" hidden>
+        <a href="https://rzp.io/rzp/jXQCrx7n" class="btn-pricing primary" target="_blank" rel="noopener">Subscribe — Rs. 299/mo</a>
+      </div>
+      <div id="subscribe-overseas" hidden>
+        <a href="https://checkout.dodopayments.com/buy/pdt_0NoMYZ9NpSDGHMwbl05pG?quantity=1" class="btn-pricing primary" target="_blank" rel="noopener">Subscribe — $8/mo</a>
+      </div>
+    </div>
+  </div>
+  <p class="pricing-note">Questions? <a href="mailto:info@invois.work" style="color:var(--accent);text-decoration:underline;">info@invois.work</a></p>
+</div>
+
+<!-- ── FAQ ── -->
+<div class="faq-section">
+  <div class="faq-inner">
+    <p class="section-label">FAQ</p>
+    <h2 class="section-heading">Common questions</h2>
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">Do I need to install anything?<span class="icon">+</span></button>
+      <div class="faq-a">No. Invois is a Telegram bot — if you have Telegram, you're ready. Open the bot link, tap Start, and follow the setup prompts. No app to download, no account to create separately.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">What does the free trial include?<span class="icon">+</span></button>
+      <div class="faq-a">The trial gives you 3 complete invoices at no cost — full PDF generation, email delivery, and all features. No card required. After 3 invoices, you'll be prompted to subscribe to continue.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">Can I generate GST invoices?<span class="icon">+</span></button>
+      <div class="faq-a">Yes. When creating an invoice, you can choose GST (18%, 12%, 5%, or custom rate), VAT, HST, or no tax. The PDF header automatically shows "Tax Invoice" when a tax is applied, and the breakdown is shown as a separate line item.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">How does my client receive the invoice?<span class="icon">+</span></button>
+      <div class="faq-a">The invoice PDF is sent to your client's email address as an attachment. If your client also uses Telegram, you can additionally share it there. The email comes from a professional address (info@invois.work) with your business name as the sender.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">Is my business data safe?<span class="icon">+</span></button>
+      <div class="faq-a">Yes. We store only what you provide: your name, email, business details, client records, and invoices. We never sell your data to third parties. Payments are handled by Razorpay (India) or DodoPayments (overseas) — we never see your card number.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">Can I cancel my subscription?<span class="icon">+</span></button>
+      <div class="faq-a">Yes, anytime. Message the bot or email info@invois.work and your subscription will be cancelled immediately. No lock-in, no cancellation fee, no questions asked.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── Final CTA ── -->
+<div class="final-cta">
+  <div class="final-cta-inner">
+    <h2>Start sending invoices<br>in <em>under 5 minutes</em></h2>
+    <p>3 invoices free, no card needed. Professional PDFs delivered straight from Telegram.</p>
+    <div class="final-cta-actions">
+      <a href="https://t.me/sendinvois_bot" class="btn-hero" target="_blank" rel="noopener">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="white"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.24 13.748l-2.96-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.908.811z"/></svg>
+        Open @sendinvois_bot on Telegram
+      </a>
+    </div>
+    <p class="final-cta-note">Or search <strong style="color:#8A93B8;">@sendinvois_bot</strong> directly in Telegram</p>
+  </div>
+</div>
+
+<!-- ── Privacy bar ── -->
+<div class="privacy-bar">
+  <p>We store only what you give us — your name, email, business details, client records, and invoices. We never sell your data or share it with third parties. India payments processed by Razorpay; overseas payments by DodoPayments. We never see your card number. Read our full <a href="/privacy">Privacy Policy</a> and <a href="/terms">Terms of Service</a>. Questions? <a href="mailto:info@invois.work">info@invois.work</a>.</p>
+</div>
+
+<!-- ── Footer ── -->
+<footer class="footer">
+  <div class="footer-inner">
+    <a href="/" class="footer-brand">invois<span class="dot">.work</span></a>
+    <div class="footer-links">
+      <a href="/privacy">Privacy Policy</a>
+      <a href="/terms">Terms of Service</a>
+      <a href="mailto:info@invois.work">Contact</a>
+    </div>
+    <p class="footer-copy">&copy; 2026 Citadel Consulting. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+(async function applyGeo() {
+  let isIndia = true;
+  try {
+    const res = await fetch('https://ipapi.co/json/', { signal: AbortSignal.timeout(4000) });
+    const data = await res.json();
+    isIndia = data.country_code === 'IN';
+  } catch (_) {}
+
+  document.getElementById('subscribe-india').hidden = !isIndia;
+  document.getElementById('subscribe-overseas').hidden = isIndia;
+
+  if (!isIndia) {
+    document.getElementById('price-display').innerHTML =
+      '<span class="currency">$</span><span class="amount">8</span><span class="period">/month</span>';
+
+    document.getElementById('mock-invoice').innerHTML =
+      '<div class="ic-label">Invoice · INV-2026-041</div>' +
+      '<div class="ic-row"><span>Strategy session (2h)</span><span>$160</span></div>' +
+      '<div class="ic-row"><span>Brand audit report</span><span>$95</span></div>' +
+      '<div class="ic-row"><span>Tax (10%)</span><span>$25.50</span></div>' +
+      '<div class="ic-total"><span>Total</span><span>$280.50</span></div>';
+
+    const showcase = document.getElementById('invoice-showcase');
+    if (showcase) {
+      showcase.querySelector('.ip-title').textContent = 'Invoice';
+      showcase.querySelector('.ip-biz').textContent = 'Sarah Chen Consulting';
+      showcase.querySelector('.ip-biz-sub').textContent = 'sarah@chenconsulting.co · Toronto';
+      showcase.querySelector('.ip-bill-name').textContent = 'James Miller';
+      showcase.querySelector('.ip-bill-sub').textContent = 'james@millerstartup.com · New York';
+      const rows = showcase.querySelectorAll('.ip-table tbody tr:not(.total-row)');
+      if (rows[0]) { rows[0].cells[0].textContent = 'Strategy session (2h)'; rows[0].cells[2].textContent = '$80'; rows[0].cells[3].textContent = '$160'; }
+      if (rows[1]) { rows[1].cells[0].textContent = 'Brand audit report'; rows[1].cells[2].textContent = '$95'; rows[1].cells[3].textContent = '$95'; }
+      if (rows[2]) { rows[2].cells[0].textContent = 'Tax @ 10%'; rows[2].cells[3].textContent = '$25.50'; }
+      const totalRow = showcase.querySelector('.total-row td:last-child');
+      if (totalRow) totalRow.textContent = '$280.50';
+    }
+  }
+})();
+
+document.querySelectorAll('.faq-q').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  });
+});
+</script>
+</body>
+</html>
