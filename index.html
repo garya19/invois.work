@@ -131,30 +131,56 @@ body {
 .hero {
   background: var(--ink-dark);
   overflow: hidden; position: relative;
+  min-height: calc(100vh - var(--nav-h));
+  display: flex; align-items: center;
 }
 .hero::before {
   content: '';
   position: absolute; inset: 0;
-  background: radial-gradient(ellipse 70% 60% at 60% 40%, rgba(30,107,69,0.22) 0%, transparent 70%);
+  background: radial-gradient(ellipse 60% 70% at 50% 50%, rgba(30,107,69,0.2) 0%, transparent 70%);
   pointer-events: none;
 }
 .hero-inner {
-  max-width: 1100px; margin: 0 auto;
-  padding: 96px 28px 80px;
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 56px; align-items: center;
+  max-width: 760px; margin: 0 auto;
+  padding: 80px 28px;
+  display: flex; flex-direction: column;
+  align-items: center; text-align: center;
+  position: relative; width: 100%;
 }
+/* ── Variant switcher ── */
+.variant-switcher {
+  display: inline-flex; gap: 4px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 30px; padding: 4px;
+  margin-bottom: 36px;
+}
+.v-btn {
+  background: none; border: none; cursor: pointer;
+  font-family: 'Outfit', sans-serif;
+  font-size: 12.5px; font-weight: 600;
+  color: rgba(255,255,255,0.45);
+  padding: 6px 18px; border-radius: 24px;
+  transition: background .2s, color .2s;
+  letter-spacing: 0.03em;
+}
+.v-btn.active {
+  background: rgba(255,255,255,0.12);
+  color: #EEF0F8;
+}
+/* ── Variant panels ── */
+.hero-variant { width: 100%; }
+.hero-variant[hidden] { display: none !important; }
 .hero-badge {
   display: inline-flex; align-items: center; gap: 7px;
   background: rgba(30,107,69,0.2); border: 1px solid rgba(30,107,69,0.35);
   color: #5DCEA8; font-size: 12.5px; font-weight: 600;
   letter-spacing: 0.06em; padding: 5px 13px; border-radius: 20px;
-  margin-bottom: 22px;
+  margin-bottom: 24px;
 }
 .hero-badge .pulse {
   width: 7px; height: 7px; border-radius: 50%;
-  background: #5DCEA8;
-  animation: pulse 2s infinite;
+  background: #5DCEA8; animation: pulse 2s infinite;
 }
 @keyframes pulse {
   0%   { box-shadow: 0 0 0 0 rgba(93,206,168,0.5); }
@@ -163,110 +189,32 @@ body {
 }
 .hero h1 {
   font-family: 'Fraunces', Georgia, serif;
-  font-size: clamp(34px, 4.5vw, 54px);
-  font-weight: 300; line-height: 1.08;
+  font-size: clamp(32px, 4.5vw, 54px);
+  font-weight: 300; line-height: 1.1;
   letter-spacing: -0.03em; color: #EEF0F8;
-  text-wrap: balance; margin-bottom: 20px;
+  text-wrap: balance; margin-bottom: 22px;
+  max-width: 22ch; margin-left: auto; margin-right: auto;
 }
 .hero h1 em { font-style: italic; color: #82BDFF; }
 .hero-sub {
-  font-size: 17px; line-height: 1.65;
-  color: #8A93B8; max-width: 46ch; margin-bottom: 36px;
+  font-size: 18px; line-height: 1.7;
+  color: #8A93B8; max-width: 52ch;
+  margin: 0 auto 36px;
 }
-.hero-actions { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+.hero-actions { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; justify-content: center; }
 .btn-hero {
   display: inline-flex; align-items: center; gap: 9px;
   background: var(--cta); color: #fff;
   font-size: 15.5px; font-weight: 600;
-  padding: 14px 26px; border-radius: var(--r);
+  padding: 15px 28px; border-radius: var(--r);
   text-decoration: none;
   transition: background .15s, box-shadow .15s;
   box-shadow: 0 4px 20px rgba(196,95,24,0.3);
 }
 .btn-hero:hover { background: var(--cta-hover); box-shadow: 0 6px 28px rgba(196,95,24,0.4); }
-.btn-hero-ghost {
-  display: inline-flex; align-items: center; gap: 7px;
-  color: #8A93B8; font-size: 15px; font-weight: 500;
-  text-decoration: none; padding: 14px 6px;
-  transition: color .15s;
-}
-.btn-hero-ghost:hover { color: #EEF0F8; }
-.hero-note {
-  margin-top: 20px; font-size: 13px; color: #555E80;
-  display: flex; align-items: center; gap: 18px; flex-wrap: wrap;
-}
-.hero-note span { display: flex; align-items: center; gap: 6px; }
-.hero-note svg { color: #5DCEA8; flex-shrink: 0; }
-
-/* ── Hero visual ── */
-.hero-tg-window {
-  background: #1E2235;
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 16px; padding: 16px;
-  width: 100%; max-width: 320px;
-  box-shadow: 0 24px 64px rgba(0,0,0,0.5);
-}
-.tg-header {
-  display: flex; align-items: center; gap: 10px;
-  padding-bottom: 12px;
-  border-bottom: 1px solid rgba(255,255,255,0.07);
-  margin-bottom: 14px;
-}
-.tg-avatar {
-  width: 36px; height: 36px; border-radius: 50%;
-  background: linear-gradient(135deg, #1E6B45, #2EA86A);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 14px; font-weight: 700; color: #fff; flex-shrink: 0;
-}
-.tg-name { font-size: 14px; font-weight: 600; color: #EEF0F8; }
-.tg-status { font-size: 11.5px; color: #5DCEA8; }
-.tg-messages { display: flex; flex-direction: column; gap: 8px; }
-.tg-msg {
-  padding: 8px 12px; border-radius: 10px;
-  font-size: 12.5px; line-height: 1.5;
-}
-.tg-msg.bot {
-  background: rgba(255,255,255,0.07);
-  border: 1px solid rgba(255,255,255,0.1);
-  color: rgba(255,255,255,0.85); align-self: flex-start;
-  border-bottom-left-radius: 3px; max-width: 85%;
-}
-.tg-msg.user {
-  background: rgba(30,107,69,0.35);
-  border: 1px solid rgba(30,107,69,0.45);
-  color: rgba(255,255,255,0.9); align-self: flex-end;
-  border-bottom-right-radius: 3px; max-width: 75%;
-}
-.tg-invoice-card {
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 8px; padding: 12px 14px;
-  margin-top: 4px; align-self: flex-start; max-width: 92%;
-}
-.tg-invoice-card .ic-label {
-  font-size: 10px; font-weight: 600;
-  letter-spacing: 0.08em; text-transform: uppercase;
-  color: #5DCEA8; margin-bottom: 8px;
-}
-.tg-invoice-card .ic-row {
-  display: flex; justify-content: space-between;
-  font-size: 11.5px; color: rgba(255,255,255,0.55);
-  padding: 3px 0; font-variant-numeric: tabular-nums;
-}
-.tg-invoice-card .ic-total {
-  display: flex; justify-content: space-between;
-  font-size: 13px; font-weight: 700; color: rgba(255,255,255,0.9);
-  border-top: 1px solid rgba(255,255,255,0.12);
-  padding-top: 8px; margin-top: 6px;
-  font-variant-numeric: tabular-nums;
-}
-.tg-btn-row { display: flex; gap: 6px; margin-top: 10px; }
-.tg-btn {
-  flex: 1; text-align: center;
-  background: rgba(34,158,217,0.2);
-  border: 1px solid rgba(34,158,217,0.3);
-  color: #5BB8E8; font-size: 11px; font-weight: 600;
-  padding: 7px 4px; border-radius: 6px;
+.hero-micro {
+  margin-top: 16px; font-size: 13px; color: #555E80;
+  letter-spacing: 0.01em;
 }
 
 /* ── Logo strip ── */
@@ -570,8 +518,6 @@ body {
 
 /* ── Responsive ── */
 @media (max-width: 900px) {
-  .hero-inner { grid-template-columns: 1fr; gap: 40px; }
-  .hero-tg-window { max-width: 100%; }
   .steps-grid { grid-template-columns: 1fr; }
   .step + .step::before { display: none; }
   .features-grid { grid-template-columns: 1fr 1fr; }
@@ -619,51 +565,41 @@ body {
 <!-- ── Hero ── -->
 <section class="hero">
   <div class="hero-inner">
-    <div class="hero-text">
+
+    <!-- Variant switcher -->
+    <div class="variant-switcher" role="group" aria-label="Hero variant">
+      <button class="v-btn active" data-v="a" aria-pressed="true">Variant A</button>
+      <button class="v-btn" data-v="b" aria-pressed="false">Variant B</button>
+    </div>
+
+    <!-- Variant A -->
+    <div class="hero-variant" id="hero-a">
       <div class="hero-badge"><span class="pulse"></span>Live on Telegram</div>
-      <h1>Send invoice to your<br>customers <em>under a minute</em></h1>
-      <p class="hero-sub">No app to install. No dashboard to learn. Create professional PDF invoices in your brand, send them by email and message, and track payments.</p>
+      <h1>Never send an awkward <em>"Did you pay yet?"</em> text again.</h1>
+      <p class="hero-sub">Invois sends professional PDF bills and automated email reminders directly from Telegram in 20 seconds. You teach — let the bot handle the collections.</p>
       <div class="hero-actions">
         <a href="https://t.me/sendinvois_bot" class="btn-hero" target="_blank" rel="noopener">
           <svg width="17" height="17" viewBox="0 0 24 24" fill="white"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.24 13.748l-2.96-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.908.811z"/></svg>
-          Start Free Trial
+          Start on Telegram — 3 Invoices Free
         </a>
-        <a href="#how-it-works" class="btn-hero-ghost">See how it works →</a>
       </div>
-      <div class="hero-note">
-        <span><svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>No card needed</span>
-        <span><svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Cancel anytime</span>
-        <span><svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Your data stays yours</span>
-      </div>
+      <p class="hero-micro">Zero setup &nbsp;•&nbsp; No credit card required</p>
     </div>
-    <div class="hero-visual">
-      <div class="hero-tg-window">
-        <div class="tg-header">
-          <div class="tg-avatar">EI</div>
-          <div>
-            <div class="tg-name">Invois Bot</div>
-            <div class="tg-status">● online</div>
-          </div>
-        </div>
-        <div class="tg-messages">
-          <div class="tg-msg bot">Hi Priya 👋 Invoice created! Here's the preview:</div>
-          <div class="tg-invoice-card" id="mock-invoice">
-            <div class="ic-label">Tax Invoice · INV-2026-041</div>
-            <div class="ic-row"><span>Monthly coaching</span><span>3,500</span></div>
-            <div class="ic-row"><span>Nutrition plan</span><span>800</span></div>
-            <div class="ic-row"><span>GST 18%</span><span>774</span></div>
-            <div class="ic-total"><span>Total</span><span>Rs. 5,074</span></div>
-          </div>
-          <div class="tg-msg bot">Send to Rahul Sharma (rahul@email.com)?</div>
-          <div class="tg-btn-row">
-            <div class="tg-btn">✓ Send Invoice</div>
-            <div class="tg-btn">✎ Edit</div>
-          </div>
-          <div class="tg-msg user">Send!</div>
-          <div class="tg-msg bot">✅ Invoice sent to rahul@email.com with PDF attached.</div>
-        </div>
+
+    <!-- Variant B -->
+    <div class="hero-variant" id="hero-b" hidden>
+      <div class="hero-badge"><span class="pulse"></span>Live on Telegram</div>
+      <h1>Stop losing your earnings to <em>delayed payments</em> or forgotten sessions.</h1>
+      <p class="hero-sub">Built for independent coaches, trainers, tutors and freelancers, Invois delivers the invoice and chases for late payments. Automatically.</p>
+      <div class="hero-actions">
+        <a href="https://t.me/sendinvois_bot" class="btn-hero" target="_blank" rel="noopener">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="white"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.24 13.748l-2.96-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.908.811z"/></svg>
+          Collect Your Unpaid Fees Now
+        </a>
       </div>
+      <p class="hero-micro">First 3 client invoices 100% free</p>
     </div>
+
   </div>
 </section>
 
@@ -979,13 +915,6 @@ body {
     document.getElementById('price-display').innerHTML =
       '<span class="currency">$</span><span class="amount">8</span><span class="period">/month</span>';
 
-    document.getElementById('mock-invoice').innerHTML =
-      '<div class="ic-label">Invoice · INV-2026-041</div>' +
-      '<div class="ic-row"><span>Strategy session (2h)</span><span>$160</span></div>' +
-      '<div class="ic-row"><span>Brand audit report</span><span>$95</span></div>' +
-      '<div class="ic-row"><span>Tax (10%)</span><span>$25.50</span></div>' +
-      '<div class="ic-total"><span>Total</span><span>$280.50</span></div>';
-
     const showcase = document.getElementById('invoice-showcase');
     if (showcase) {
       showcase.querySelector('.ip-title').textContent = 'Invoice';
@@ -1002,6 +931,18 @@ body {
     }
   }
 })();
+
+/* Variant A/B switcher */
+document.querySelectorAll('.v-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const v = btn.dataset.v;
+    document.querySelectorAll('.v-btn').forEach(b => { b.classList.remove('active'); b.setAttribute('aria-pressed','false'); });
+    btn.classList.add('active');
+    btn.setAttribute('aria-pressed','true');
+    document.getElementById('hero-a').hidden = (v !== 'a');
+    document.getElementById('hero-b').hidden = (v !== 'b');
+  });
+});
 
 document.querySelectorAll('.faq-q').forEach(btn => {
   btn.addEventListener('click', () => {
