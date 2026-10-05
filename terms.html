@@ -1,159 +1,289 @@
 ﻿<!DOCTYPE html>
+
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Terms of Service â€” invois.work</title>
+
+<title>Terms of Service — invois.work</title>
+
 <meta name="description" content="Terms of Service for invois.work (EzeInvoice). Your rights and obligations when using the service.">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
+
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;1,9..144,300&family=Outfit:wght@400;500;600;700&display=swap">
+
 <style>
+
 :root {
+
   --bg:         #F7F8FC;
+
   --surface:    #FFFFFF;
+
   --text:       #13172A;
+
   --text-mid:   #44496A;
+
   --text-soft:  #7A80A0;
+
   --accent:     #1E6B45;
+
   --border:     #E2E5F0;
+
   --ink-dark:   #0F1422;
+
   --nav-h:      60px;
+
 }
+
 @media (prefers-color-scheme: dark) {
+
   :root:not([data-theme="light"]) {
+
     --bg:         #0D0F1A;
+
     --surface:    #161927;
+
     --text:       #E6E8F5;
+
     --text-mid:   #8C93B8;
+
     --text-soft:  #555C80;
+
     --accent:     #2EA86A;
+
     --border:     #242840;
+
     --ink-dark:   #0D0F1A;
+
   }
+
 }
+
 :root[data-theme="dark"] {
+
   --bg:         #0D0F1A;
+
   --surface:    #161927;
+
   --text:       #E6E8F5;
+
   --text-mid:   #8C93B8;
+
   --text-soft:  #555C80;
+
   --accent:     #2EA86A;
+
   --border:     #242840;
+
   --ink-dark:   #0D0F1A;
+
 }
+
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
 html { scroll-behavior: smooth; }
+
 body {
+
   background: var(--bg); color: var(--text);
+
   font-family: 'Outfit', system-ui, sans-serif;
+
   font-size: 16px; line-height: 1.7;
+
   -webkit-font-smoothing: antialiased;
+
 }
+
 .nav {
+
   position: sticky; top: 0; z-index: 30;
+
   background: rgba(247,248,252,0.9);
+
   backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+
   border-bottom: 1px solid var(--border);
+
 }
+
 @media (prefers-color-scheme: dark) {
+
   :root:not([data-theme="light"]) .nav { background: rgba(13,15,26,0.9); }
+
 }
+
 :root[data-theme="dark"] .nav { background: rgba(13,15,26,0.9); }
+
 .nav-inner {
+
   max-width: 860px; margin: 0 auto; padding: 0 28px;
+
   height: var(--nav-h); display: flex; align-items: center; gap: 4px;
+
 }
+
 .nav-brand { font-weight: 700; font-size: 17px; color: var(--text); text-decoration: none; letter-spacing: -0.03em; margin-right: auto; }
+
 .nav-brand .dot { color: var(--accent); }
+
 .nav-back { font-size: 14px; font-weight: 500; color: var(--text-mid); text-decoration: none; padding: 7px 14px; border-radius: 8px; transition: color .15s, background .15s; }
+
 .nav-back:hover { color: var(--text); background: var(--surface); }
 
+
+
 .page-wrap { max-width: 860px; margin: 0 auto; padding: 64px 28px 96px; }
+
 .page-header { margin-bottom: 48px; border-bottom: 1px solid var(--border); padding-bottom: 32px; }
+
 .page-header h1 {
+
   font-family: 'Fraunces', Georgia, serif;
+
   font-size: clamp(28px, 4vw, 40px);
+
   font-weight: 300; letter-spacing: -0.025em;
+
   color: var(--text); margin-bottom: 10px;
+
 }
+
 .page-header .meta { font-size: 14px; color: var(--text-soft); }
 
+
+
 .doc-body h2 {
+
   font-size: 18px; font-weight: 700; color: var(--text);
+
   letter-spacing: -0.02em; margin-top: 44px; margin-bottom: 12px;
+
 }
+
 .doc-body h2:first-child { margin-top: 0; }
+
 .doc-body p { font-size: 15.5px; color: var(--text-mid); margin-bottom: 14px; line-height: 1.75; }
+
 .doc-body ul { padding-left: 20px; margin-bottom: 14px; }
+
 .doc-body ul li { font-size: 15.5px; color: var(--text-mid); margin-bottom: 6px; line-height: 1.7; }
+
 .doc-body a { color: var(--accent); text-underline-offset: 2px; }
+
 .doc-body strong { color: var(--text); font-weight: 600; }
 
+
+
 .callout {
+
   background: var(--surface); border: 1px solid var(--border);
+
   border-left: 3px solid var(--accent);
+
   border-radius: 8px; padding: 16px 20px; margin: 24px 0;
+
 }
+
 .callout p { margin-bottom: 0; }
 
+
+
 .footer {
+
   background: var(--ink-dark);
+
   border-top: 1px solid rgba(255,255,255,0.07); padding: 36px 28px;
+
 }
+
 .footer-inner {
+
   max-width: 860px; margin: 0 auto;
+
   display: flex; align-items: center;
+
   justify-content: space-between; flex-wrap: wrap; gap: 16px;
+
 }
+
 .footer-brand { font-weight: 700; font-size: 16px; color: #EEF0F8; text-decoration: none; }
+
 .footer-brand .dot { color: #5DCEA8; }
+
 .footer-links { display: flex; gap: 20px; flex-wrap: wrap; }
+
 .footer-links a { font-size: 13px; color: #8A93B8; text-decoration: none; transition: color .15s; }
+
 .footer-links a:hover { color: #EEF0F8; }
+
 .footer-copy { width: 100%; font-size: 12px; color: rgba(138,147,184,0.4); }
 
+
+
 @media (max-width: 640px) {
+
   .page-wrap { padding: 40px 20px 64px; }
+
   .nav-inner { padding: 0 16px; }
+
 }
+
 </style>
+
 </head>
+
 <body>
 
+
+
 <nav class="nav">
+
   <div class="nav-inner">
+
     <a href="/" class="nav-brand">invois<span class="dot">.work</span></a>
-    <a href="/" class="nav-back">â† Back to home</a>
+
+    <a href="/" class="nav-back">← Back to home</a>
+
   </div>
+
 </nav>
+
+
 
 <div class="page-wrap">
   <div class="page-header">
     <h1>Terms of Service</h1>
-    <p class="meta">Effective date: 1 October 2026 &nbsp;Â·&nbsp; Last updated: 28 September 2026</p>
+    <p class="meta">Effective date: 1 October 2026 &nbsp;&middot;&nbsp; Last updated: 5 October 2026</p>
   </div>
 
   <div class="doc-body">
 
     <div class="callout">
-      <p><strong>Short version:</strong> Use the service honestly, for legal invoicing purposes. Pay your subscription fee. Don't abuse the platform or violate your clients' privacy. We provide the service as-is and may suspend accounts that breach these terms.</p>
+      <p><strong>Short version:</strong> Use the service honestly, for legal invoicing purposes. Pay your subscription fee. Don&#8217;t abuse the platform or violate your clients&#8217; privacy. We provide the service as-is and may suspend accounts that breach these terms.</p>
     </div>
 
+    <p>By accessing and using the bot, you explicitly acknowledge and agree that your usage constitutes full acceptance of these Terms of Service.</p>
+
     <h2>1. Agreement</h2>
-    <p>By starting the @sendinvois_bot Telegram bot or accessing invois.work, you agree to these Terms of Service ("Terms"). These Terms form a binding agreement between you and Citadel Consulting ("we", "us", "our"), the operator of invois.work and EzeInvoice.</p>
-    <p>If you do not agree to these Terms, do not use the service.</p>
+    <p>By starting @sendinvois_bot or accessing invois.work, you agree to these Terms of Service (&#8220;Terms&#8221;). These Terms form a binding agreement between you and Citadel Consulting (&#8220;we&#8221;, &#8220;us&#8221;, &#8220;our&#8221;), the operator of invois.work and EzeInvoice. If you do not agree to these Terms, do not use the service.</p>
 
     <h2>2. The service</h2>
-    <p>invois.work provides a Telegram-based invoicing tool ("EzeInvoice" or "the Service") that allows you to create PDF invoices, manage client records, send invoices by email and Telegram, track payment status, and export data. The Service is accessed entirely through the Telegram bot @sendinvois_bot.</p>
+    <p>invois.work provides a messaging platform-based invoicing tool (&#8220;EzeInvoice&#8221; or &#8220;the Service&#8221;) that allows you to create PDF invoices, manage client records, send invoices by email and messaging app, track payment status, and export data. The Service is accessed entirely through @sendinvois_bot.</p>
 
     <h2>3. Eligibility</h2>
     <p>You must be at least 18 years old and legally capable of entering into contracts to use the Service. By using the Service, you represent that you meet these requirements.</p>
     <p>The Service is intended for legitimate business invoicing. You may not use it for personal non-business transactions, speculative or fraudulent invoicing, or any unlawful purpose.</p>
 
     <h2>4. Your account</h2>
-    <p>Your account is tied to your Telegram identity. You are responsible for:</p>
+    <p>Your account is tied to your messaging platform identity. You are responsible for:</p>
     <ul>
-      <li>Keeping your Telegram account secure.</li>
+      <li>Keeping your account secure.</li>
       <li>All activity that occurs through your account.</li>
       <li>Ensuring the information in your profile (business name, address, logo) is accurate and not misleading.</li>
     </ul>
@@ -181,9 +311,9 @@ body {
 
     <h2>7. Subscription and payment</h2>
     <p><strong>Free trial:</strong> New accounts receive 3 free invoices with no card required. After 3 invoices, you must subscribe to continue.</p>
-    <p><strong>Subscription:</strong> The Pro plan is available at Rs. 299/month (India) or $8/month (overseas). Pricing is displayed to you at the time of subscription based on your location.</p>
-    <p><strong>Payment processing:</strong> Indian payments are processed by Razorpay. International payments are processed by DodoPayments. Both are subject to their own terms of service. We do not store your card or bank details.</p>
-    <p><strong>Billing:</strong> Subscriptions are billed monthly. After payment is confirmed and approved, you receive a receipt via Telegram and email, and your subscription is activated for 30 days.</p>
+    <p><strong>Subscription:</strong> The Pro plan is available at Rs.&nbsp;299/month (India) or $8/month (overseas). Pricing is displayed to you at the time of subscription based on your location.</p>
+    <p><strong>Payment processing:</strong> Payments are processed securely by our payment processing partners, subject to their own terms of service. We do not store your card or bank details.</p>
+    <p><strong>Billing:</strong> Subscriptions are billed monthly. After payment is confirmed and approved, you receive a receipt via the bot and email, and your subscription is activated for 30 days.</p>
     <p><strong>Refunds:</strong> Subscription payments are non-refundable except where required by applicable law. If you believe you were charged in error, contact us within 7 days at <a href="mailto:hi@invois.work">hi@invois.work</a>.</p>
     <p><strong>Cancellation:</strong> You may cancel at any time by messaging the bot or emailing us. Cancellation takes effect at the end of the current subscription period. No partial refunds are provided for unused days.</p>
 
@@ -192,7 +322,7 @@ body {
     <p>Your invoice content, business information, logo, and client records remain your property at all times. We claim no ownership over data you create using the Service.</p>
 
     <h2>9. Disclaimer of warranties</h2>
-    <p>The Service is provided "as is" and "as available" without warranty of any kind, express or implied. We do not warrant that the Service will be uninterrupted, error-free, or that invoices will be delivered without delay. Use of the Service is at your own risk.</p>
+    <p>The Service is provided &#8220;as is&#8221; and &#8220;as available&#8221; without warranty of any kind, express or implied. We do not warrant that the Service will be uninterrupted, error-free, or that invoices will be delivered without delay. Use of the Service is at your own risk.</p>
     <p>We are not responsible for the accuracy, legality, or completeness of invoices you create. You are solely responsible for ensuring your invoices comply with applicable tax laws and accounting requirements in your jurisdiction.</p>
 
     <h2>10. Limitation of liability</h2>
@@ -204,7 +334,7 @@ body {
     <p>You may terminate your account at any time by contacting us at <a href="mailto:hi@invois.work">hi@invois.work</a>.</p>
 
     <h2>12. Changes to the service and terms</h2>
-    <p>We may update these Terms or modify the Service at any time. Material changes to the Terms will be communicated to active subscribers via the Telegram bot at least 14 days before taking effect. Continued use of the Service after changes take effect constitutes acceptance of the updated Terms.</p>
+    <p>We may update these Terms or modify the Service at any time. Material changes to the Terms will be communicated to active subscribers via the bot at least 14 days before taking effect. Continued use of the Service after changes take effect constitutes acceptance of the updated Terms.</p>
 
     <h2>13. Governing law</h2>
     <p>These Terms are governed by the laws of India. Any disputes arising from these Terms shall be subject to the exclusive jurisdiction of the courts in Mumbai, Maharashtra, India.</p>
@@ -215,18 +345,31 @@ body {
 
   </div>
 </div>
-
 <footer class="footer">
+
   <div class="footer-inner">
+
     <a href="/" class="footer-brand">invois<span class="dot">.work</span></a>
+
     <div class="footer-links">
+
       <a href="/privacy">Privacy Policy</a>
+
       <a href="/terms">Terms of Service</a>
+
       <a href="mailto:hi@invois.work">Contact</a>
+
     </div>
+
     <p class="footer-copy">&copy; 2026 Citadel Consulting. All rights reserved.</p>
+
   </div>
+
 </footer>
 
+
+
 </body>
+
 </html>
+
