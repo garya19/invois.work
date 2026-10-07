@@ -593,37 +593,37 @@ body::before {
 
     <!-- Hero invoice card -->
     <div class="hero-card-wrap">
-      <div class="hero-invoice-card">
+      <div class="hero-invoice-card" id="hero-invoice-card">
         <div class="hc-paid">PAID &#10003;</div>
         <div class="hc-header">
           <div>
             <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px;">
-              <div class="hc-avatar">P</div>
+              <div class="hc-avatar" id="hc-avatar">P</div>
               <div>
-                <div class="hc-biz">Priya Mehta Wellness</div>
-                <div class="hc-biz-sub">priya@wellnesscoach.in &middot; Mumbai</div>
+                <div class="hc-biz" id="hc-biz">Priya Mehta Wellness</div>
+                <div class="hc-biz-sub" id="hc-biz-sub">priya@wellnesscoach.in &middot; Mumbai</div>
               </div>
             </div>
           </div>
           <div class="hc-right">
-            <div class="hc-title">Tax Invoice</div>
+            <div class="hc-title" id="hc-title">Tax Invoice</div>
             <div class="hc-num">INV-2026-041</div>
             <div class="hc-date">28 Sep 2026</div>
           </div>
         </div>
         <div class="hc-divider"></div>
         <div class="hc-bill-label">Billed to</div>
-        <div class="hc-bill-name">Rahul Sharma</div>
-        <div class="hc-bill-sub">rahul@sharma.in &middot; Bangalore</div>
+        <div class="hc-bill-name" id="hc-bill-name">Rahul Sharma</div>
+        <div class="hc-bill-sub" id="hc-bill-sub">rahul@sharma.in &middot; Bangalore</div>
         <table class="hc-table">
           <thead>
             <tr><th>Description</th><th>Qty</th><th>Rate</th><th>Amt</th></tr>
           </thead>
-          <tbody>
+          <tbody id="hc-tbody">
             <tr><td>Monthly coaching</td><td>1</td><td>3,500</td><td>3,500</td></tr>
             <tr><td>Nutrition plan</td><td>1</td><td>800</td><td>800</td></tr>
             <tr><td>GST @ 18%</td><td></td><td></td><td>774</td></tr>
-            <tr class="hc-total"><td colspan="3">Total</td><td>Rs.&nbsp;5,074</td></tr>
+            <tr class="hc-total" id="hc-total-row"><td colspan="3">Total</td><td>Rs.&nbsp;5,074</td></tr>
           </tbody>
         </table>
         <div class="hc-footer">Sent via invois.work</div>
@@ -987,6 +987,22 @@ body::before {
   if (!isIndia) {
     document.getElementById('price-display').innerHTML =
       '<span class="currency">$</span><span class="amount">8</span><span class="period">/month</span>';
+
+    // Update hero floating card
+    const hc = document.getElementById('hero-invoice-card');
+    if (hc) {
+      document.getElementById('hc-avatar').textContent = 'S';
+      document.getElementById('hc-biz').textContent = 'Sarah Chen Consulting';
+      document.getElementById('hc-biz-sub').textContent = 'sarah@chenconsulting.co · Toronto';
+      document.getElementById('hc-title').textContent = 'Invoice';
+      document.getElementById('hc-bill-name').textContent = 'James Miller';
+      document.getElementById('hc-bill-sub').textContent = 'james@millerstartup.com · New York';
+      const hcRows = document.querySelectorAll('#hc-tbody tr:not(#hc-total-row)');
+      if (hcRows[0]) { hcRows[0].cells[0].textContent = 'Strategy session (2h)'; hcRows[0].cells[2].textContent = '$80'; hcRows[0].cells[3].textContent = '$160'; }
+      if (hcRows[1]) { hcRows[1].cells[0].textContent = 'Brand audit report'; hcRows[1].cells[2].textContent = '$95'; hcRows[1].cells[3].textContent = '$95'; }
+      if (hcRows[2]) { hcRows[2].cells[0].textContent = 'Tax @ 10%'; hcRows[2].cells[3].textContent = '$25.50'; }
+      document.querySelector('#hc-total-row td:last-child').textContent = '$280.50';
+    }
 
     const showcase = document.getElementById('invoice-showcase');
     if (showcase) {
