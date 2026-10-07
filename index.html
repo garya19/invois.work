@@ -109,6 +109,13 @@ body::before {
 
 .btn-full { width: 100%; justify-content: center; }
 
+.nav-text-link {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 15px; font-weight: 500; color: var(--body);
+  text-decoration: none; transition: color 0.15s;
+}
+.nav-text-link:hover { color: var(--navy); }
+
 /* ── Nav ── */
 .nav {
   position: sticky; top: 3px; z-index: 100;
@@ -317,7 +324,7 @@ body::before {
   width: 40px; height: 40px; border-radius: 8px;
   background: var(--indigo-light);
   display: flex; align-items: center; justify-content: center;
-  color: var(--indigo); margin-bottom: 14px;
+  color: var(--navy); margin-bottom: 14px;
 }
 .feature-card h3 { font-size: 15px; font-weight: 600; color: var(--navy); margin-bottom: 6px; }
 .feature-card p { font-size: 14px; color: var(--body); line-height: 1.65; }
@@ -337,7 +344,7 @@ body::before {
   font-size: 15px; color: var(--body); line-height: 1.6;
 }
 .pdf-bullets li::before {
-  content: '&#10003;'; color: var(--green); font-weight: 700;
+  content: '\2713'; color: var(--green); font-weight: 700;
   flex-shrink: 0; margin-top: 1px; font-size: 15px;
 }
 .invoice-card {
@@ -475,7 +482,7 @@ body::before {
   font-size: 42px; font-weight: 800; color: var(--navy);
   letter-spacing: -1px; line-height: 1.15; margin-bottom: 16px;
 }
-.final-cta h2 em { font-style: italic; color: var(--indigo); }
+.final-cta h2 em { font-style: italic; }
 .final-cta p { font-size: 18px; color: var(--body); margin-bottom: 32px; }
 .final-cta-note { margin-top: 12px; font-size: 13px; color: var(--muted); }
 
@@ -574,7 +581,7 @@ body::before {
         <p class="hero-sub">Invois sends professional PDF bills and automated email reminders directly from Telegram in 20 seconds. You teach &mdash; let the bot handle the collections.</p>
         <div class="hero-actions">
           <a href="https://t.me/sendinvois_bot" class="btn-green" target="_blank" rel="noopener">Send invoice in 30 seconds</a>
-          <a href="#how-it-works" class="btn-secondary">See how it works</a>
+          <a href="#how-it-works" class="nav-text-link">See how it works &rarr;</a>
         </div>
         <p class="hero-micro">Requires Telegram (free) &nbsp;&middot;&nbsp; No credit card &nbsp;&middot;&nbsp; 3 invoices free</p>
       </div>
@@ -585,7 +592,7 @@ body::before {
         <p class="hero-sub">Built for independent coaches, trainers, tutors and freelancers, Invois delivers the invoice and chases for late payments. Automatically.</p>
         <div class="hero-actions">
           <a href="https://t.me/sendinvois_bot" class="btn-green" target="_blank" rel="noopener">Send invoice in 30 seconds</a>
-          <a href="#how-it-works" class="btn-secondary">See how it works</a>
+          <a href="#how-it-works" class="nav-text-link">See how it works &rarr;</a>
         </div>
         <p class="hero-micro">Requires Telegram (free) &nbsp;&middot;&nbsp; No credit card &nbsp;&middot;&nbsp; 3 invoices free</p>
       </div>
