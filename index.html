@@ -605,13 +605,13 @@ body::before {
     <button class="nav-hamburger" id="hamburger" aria-label="Menu">
       <i class="ti ti-menu-2" style="font-size:22px;"></i>
     </button>
-    <a href="https://t.me/sendinvois_bot" class="btn-nav" target="_blank" rel="noopener" style="margin-left:12px;">Start free trial</a>
+    <a href="https://t.me/sendinvois_bot" class="btn-nav" onclick="openTelegram(event)" style="margin-left:12px;"><i class="ti ti-brand-telegram" style="font-size:15px;"></i> Start free trial</a>
   </div>
   <div class="mobile-menu" id="mobile-menu">
     <a href="#how-it-works">How it works</a>
     <a href="#features">Features</a>
     <a href="#pricing">Pricing</a>
-    <a href="https://t.me/sendinvois_bot" class="btn-green" target="_blank" rel="noopener">Start free trial</a>
+    <a href="https://t.me/sendinvois_bot" class="btn-green" onclick="openTelegram(event)"><i class="ti ti-brand-telegram" style="font-size:17px;"></i> Start free trial</a>
   </div>
 </nav>
 
@@ -629,10 +629,11 @@ body::before {
         <h1>Never send an awkward <em>&ldquo;Did you pay yet?&rdquo;</em> text again.</h1>
         <p class="hero-sub">Invois sends professional PDF bills and automated email reminders directly from Telegram in 20 seconds. You teach &mdash; let the bot handle the collections.</p>
         <div class="hero-actions">
-          <a href="https://t.me/sendinvois_bot" class="btn-green" target="_blank" rel="noopener">Send invoice in 30 seconds</a>
+          <a href="https://t.me/sendinvois_bot" class="btn-green" onclick="openTelegram(event)"><i class="ti ti-brand-telegram" style="font-size:17px;"></i> Start free trial on Telegram</a>
           <a href="#how-it-works" class="nav-text-link">See how it works &rarr;</a>
         </div>
-        <p class="hero-micro">Requires Telegram (free) &nbsp;&middot;&nbsp; No credit card &nbsp;&middot;&nbsp; 3 invoices free</p>
+        <p style="font-size:12px; color:var(--muted); margin-top:8px; text-align:left;">Opens Telegram &nbsp;&middot;&nbsp; Free to download</p>
+        <p class="hero-micro">No credit card &nbsp;&middot;&nbsp; 3 invoices free</p>
       </div>
 
       <!-- A/B variant B -->
@@ -640,10 +641,11 @@ body::before {
         <h1>Never send an awkward <em>&ldquo;Did you pay yet?&rdquo;</em> text again.</h1>
         <p class="hero-sub">Built for independent coaches, trainers, tutors and freelancers, Invois delivers the invoice and chases for late payments. Automatically.</p>
         <div class="hero-actions">
-          <a href="https://t.me/sendinvois_bot" class="btn-green" target="_blank" rel="noopener">Send invoice in 30 seconds</a>
+          <a href="https://t.me/sendinvois_bot" class="btn-green" onclick="openTelegram(event)"><i class="ti ti-brand-telegram" style="font-size:17px;"></i> Start free trial on Telegram</a>
           <a href="#how-it-works" class="nav-text-link">See how it works &rarr;</a>
         </div>
-        <p class="hero-micro">Requires Telegram (free) &nbsp;&middot;&nbsp; No credit card &nbsp;&middot;&nbsp; 3 invoices free</p>
+        <p style="font-size:12px; color:var(--muted); margin-top:8px; text-align:left;">Opens Telegram &nbsp;&middot;&nbsp; Free to download</p>
+        <p class="hero-micro">No credit card &nbsp;&middot;&nbsp; 3 invoices free</p>
       </div>
     </div>
 
@@ -1118,6 +1120,15 @@ document.getElementById('hamburger').addEventListener('click', () => {
 document.querySelectorAll('#mobile-menu a').forEach(a => {
   a.addEventListener('click', () => document.getElementById('mobile-menu').classList.remove('open'));
 });
+
+/* ── Telegram deep-link handler ── */
+function openTelegram(e) {
+  e.preventDefault();
+  window.location.href = 'tg://resolve?domain=sendinvois_bot';
+  setTimeout(function() {
+    window.open('https://t.me/sendinvois_bot', '_blank');
+  }, 700);
+}
 </script>
 </body>
 </html>
