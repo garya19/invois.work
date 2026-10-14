@@ -486,6 +486,31 @@ body::before {
 .final-cta p { font-size: 18px; color: var(--body); margin-bottom: 32px; }
 .final-cta-note { margin-top: 12px; font-size: 13px; color: var(--muted); }
 
+/* ── Desktop Telegram QR block ── */
+.tg-desktop-cta {
+  display: flex; flex-direction: column;
+  align-items: flex-start; gap: 10px;
+}
+.tg-desktop-cta img {
+  border-radius: 12px; border: 1px solid var(--border);
+  padding: 8px; background: #fff;
+}
+.tg-desktop-label {
+  font-size: 13px; color: var(--muted); font-weight: 500; margin: 0;
+}
+.tg-web-link {
+  font-size: 14px; color: var(--indigo); font-weight: 600; text-decoration: none;
+}
+.tg-web-link:hover { text-decoration: underline; }
+.tg-desktop-cta.centered { align-items: center; text-align: center; }
+
+/* ── Scroll anchor link ── */
+.cta-scroll-link {
+  font-size: 15px; font-weight: 600; color: var(--body);
+  text-decoration: none; display: inline-flex; align-items: center; gap: 4px;
+}
+.cta-scroll-link:hover { color: var(--navy); text-decoration: underline; }
+
 /* ── Privacy bar ── */
 .privacy-bar {
   background: var(--bg-secondary);
@@ -605,13 +630,13 @@ body::before {
     <button class="nav-hamburger" id="hamburger" aria-label="Menu">
       <i class="ti ti-menu-2" style="font-size:22px;"></i>
     </button>
-    <a href="https://t.me/sendinvois_bot" class="btn-nav" onclick="openTelegram(event)" style="margin-left:12px;"><i class="ti ti-brand-telegram" style="font-size:15px;"></i> Start free trial</a>
+    <a href="https://t.me/sendinvois_bot" class="btn-nav cta-nav-telegram" style="margin-left:12px;"><i class="ti ti-brand-telegram" style="font-size:15px;"></i> Start free trial</a>
   </div>
   <div class="mobile-menu" id="mobile-menu">
     <a href="#how-it-works">How it works</a>
     <a href="#features">Features</a>
     <a href="#pricing">Pricing</a>
-    <a href="https://t.me/sendinvois_bot" class="btn-green" onclick="openTelegram(event)"><i class="ti ti-brand-telegram" style="font-size:17px;"></i> Start free trial</a>
+    <a href="https://t.me/sendinvois_bot" class="btn-green"><i class="ti ti-brand-telegram" style="font-size:17px;"></i> Start free trial</a>
   </div>
 </nav>
 
@@ -629,8 +654,8 @@ body::before {
         <h1>Never send an awkward <em>&ldquo;Did you pay yet?&rdquo;</em> text again.</h1>
         <p class="hero-sub">Invois sends professional PDF bills and automated email reminders directly from Telegram in 20 seconds. You teach &mdash; let the bot handle the collections.</p>
         <div class="hero-actions">
-          <a href="https://t.me/sendinvois_bot" class="btn-green" onclick="openTelegram(event)"><i class="ti ti-brand-telegram" style="font-size:17px;"></i> Start free trial on Telegram</a>
-          <a href="#how-it-works" class="nav-text-link">See how it works &rarr;</a>
+          <a href="https://t.me/sendinvois_bot" class="btn-green cta-telegram"><i class="ti ti-brand-telegram" style="font-size:17px;"></i> Start free trial on Telegram</a>
+          <a href="#how-it-works" class="cta-scroll-link">See how it works &rarr;</a>
         </div>
         <p style="font-size:12px; color:var(--muted); margin-top:8px; text-align:left;">Opens Telegram &nbsp;&middot;&nbsp; Free to download</p>
         <p class="hero-micro">No credit card &nbsp;&middot;&nbsp; 3 invoices free</p>
@@ -641,8 +666,8 @@ body::before {
         <h1>Never send an awkward <em>&ldquo;Did you pay yet?&rdquo;</em> text again.</h1>
         <p class="hero-sub">Built for independent coaches, trainers, tutors and freelancers, Invois delivers the invoice and chases for late payments. Automatically.</p>
         <div class="hero-actions">
-          <a href="https://t.me/sendinvois_bot" class="btn-green" onclick="openTelegram(event)"><i class="ti ti-brand-telegram" style="font-size:17px;"></i> Start free trial on Telegram</a>
-          <a href="#how-it-works" class="nav-text-link">See how it works &rarr;</a>
+          <a href="https://t.me/sendinvois_bot" class="btn-green cta-telegram"><i class="ti ti-brand-telegram" style="font-size:17px;"></i> Start free trial on Telegram</a>
+          <a href="#how-it-works" class="cta-scroll-link">See how it works &rarr;</a>
         </div>
         <p style="font-size:12px; color:var(--muted); margin-top:8px; text-align:left;">Opens Telegram &nbsp;&middot;&nbsp; Free to download</p>
         <p class="hero-micro">No credit card &nbsp;&middot;&nbsp; 3 invoices free</p>
@@ -931,7 +956,7 @@ body::before {
           <li><span class="check">&#10003;</span> Client address book</li>
           <li><span class="check">&#10003;</span> No card required</li>
         </ul>
-        <a href="https://t.me/sendinvois_bot" class="btn-green btn-full" target="_blank" rel="noopener">Start free trial</a>
+        <a href="https://t.me/sendinvois_bot" class="btn-green btn-full cta-telegram">Start free trial</a>
       </div>
       <div class="pricing-card featured">
         <div class="featured-badge">Most popular</div>
@@ -1006,7 +1031,7 @@ body::before {
   <div class="final-cta-inner">
     <h2>Start sending invoices<br>in <em>under 5 minutes</em></h2>
     <p>3 invoices free, no card needed. Professional PDFs delivered straight from Telegram.</p>
-    <a href="https://t.me/sendinvois_bot" class="btn-green" target="_blank" rel="noopener">Send invoice in 30 seconds</a>
+    <a href="https://t.me/sendinvois_bot" class="btn-green cta-telegram">Send invoice in 30 seconds</a>
     <p class="final-cta-note">Or search <strong>@sendinvois_bot</strong> directly in Telegram</p>
   </div>
 </section>
@@ -1121,14 +1146,34 @@ document.querySelectorAll('#mobile-menu a').forEach(a => {
   a.addEventListener('click', () => document.getElementById('mobile-menu').classList.remove('open'));
 });
 
-/* ── Telegram deep-link handler ── */
-function openTelegram(e) {
-  e.preventDefault();
-  window.location.href = 'tg://resolve?domain=sendinvois_bot';
-  setTimeout(function() {
-    window.open('https://t.me/sendinvois_bot', '_blank');
-  }, 700);
-}
+/* ── Device-aware Telegram CTAs ── */
+document.addEventListener('DOMContentLoaded', function () {
+  var isDesktop = !/iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+  /* Fix 2: nav button → Telegram Web on desktop */
+  if (isDesktop) {
+    var navCta = document.querySelector('.cta-nav-telegram');
+    if (navCta) {
+      navCta.href = 'https://web.telegram.org/k/#@sendinvois_bot';
+      navCta.setAttribute('target', '_blank');
+      navCta.setAttribute('rel', 'noopener');
+    }
+  }
+
+  /* Fix 1: body CTAs → QR block on desktop */
+  if (!isDesktop) return;
+
+  document.querySelectorAll('.cta-telegram').forEach(function (btn) {
+    var isCentered = btn.closest('.pricing-card, .final-cta') !== null;
+    var block = document.createElement('div');
+    block.className = 'tg-desktop-cta' + (isCentered ? ' centered' : '');
+    block.innerHTML =
+      '<img src="/assets/invois-qr.png" srcset="/assets/invois-qr.png 1x, /assets/invois-qr@2x.png 2x" alt="Scan QR code to open Invois bot in Telegram on your phone" width="128" height="128" />' +
+      '<p class="tg-desktop-label">Scan with your phone to start</p>' +
+      '<a href="https://web.telegram.org/k/#@sendinvois_bot" target="_blank" rel="noopener" class="tg-web-link">Or open in Telegram Web &rarr;</a>';
+    btn.replaceWith(block);
+  });
+});
 </script>
 </body>
 </html>
